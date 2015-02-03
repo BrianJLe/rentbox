@@ -1,0 +1,11 @@
+  <%= form_for(@rental, :html => { :multipart => true }) do |f| %>
+
+  <div class="form-group" style="padding-top: 30px; padding-left: 60px; font-size: 1.5em;">
+  	<%= f.label :movie_id, "Movie" %><br>
+  	<%= f.collection_select :movie_id, @movies, :id, :title, :prompt=>true, class: "form-control" %>
+  </div>
+
+  <%= f.submit  "Checkout", class: "btn btn-primary" %>
+  <%= link_to 'Back', movies_path, class: "btn btn-default" %>
+
+  <% end %>
