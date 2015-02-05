@@ -2,6 +2,10 @@ class ReturnsController < ApplicationController
 	def new
 		@return = Return.new
 		@movies = Movie.all.select { |m| m.inventory == 'Reserved'}
+		if @movies.empty?
+			flash[:alert] = "There are no movies to return."
+			redirect_to movies_path
+		end
 	end
 
 	def create

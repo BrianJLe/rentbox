@@ -1,19 +1,23 @@
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Genre</th>
-		<th>Rating</th>
-		<th>Inventory</th>
-	</tr>
-	<% @movies.each do |movie| %>
-	<tr>
-		<td> <%= movie.title %> </td>
-		<td> <%= movie.genre %> </td>
-		<td> <%= movie.rating %> </td>
-		<td> <%= movie.inventory %> </td>
-	</tr>
-	<% end %>
-</table>
-
-<li><%= link_to "Rent A Movie", new_rental_path %></li>
-<li><%= link_to "Return A Movie", new_return_path  %></li>
+<div class="container">
+	<div class="row">
+		<h1> Movies </h1>
+		<div class="table-responsive">
+			<table class="table">
+				<tr>
+					<th><%= sortable "title" %></th>
+					<th><%= sortable "genre" %></th>
+					<th><%= sortable "rating" %></th>
+					<th><%= sortable "inventory" %></th>
+				</tr>
+				<% @movies.each do |movie| %>
+				<tr>
+					<td> <%= link_to movie.title, movie_path(movie) %> </td>
+					<td> <%= movie.genre %> </td>
+					<td> <%= movie.rating %> </td>
+					<td> <%= movie.inventory %> </td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

@@ -9,5 +9,31 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require font-awesome
+ *= require bootstrap.min
  *= require_tree .
  */
+
+ body { 
+ 	padding-top: 65px; 
+ }
+
+ td {
+ 	border-spacing:5px;
+ }
+ 
+ #imaginary_container{
+    margin-top:20%; /* Don't copy this */
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}

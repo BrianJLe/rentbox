@@ -1,0 +1,25 @@
+ <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <%= link_to "Rentbox", movies_path, :class => 'navbar-brand page-scroll' %>
+            <%= form_tag movies_path, :class => 'navbar-brand page-scroll', :style => "padding-top: 10px", :method => 'get' do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :class => "btn" %>
+            <% end %>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <%= link_to "Rent A Movie", new_rental_path, :class => 'page-scroll' %>
+                </li>
+                <li>
+                    <%= link_to "Return A Movie", new_return_path, :class => 'page-scroll' %>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

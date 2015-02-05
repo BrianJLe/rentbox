@@ -2,25 +2,20 @@ require 'rails_helper'
 
 RSpec.describe RentalsController, :type => :controller do
 
-  describe "GET new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
+  before do
+    @movie = Movie.new(title: 'Big Hero 6', genre: 'Family', rating: 9.1, inventory: 'Available')
+    @movie.save
+  end
+  context "success" do
+
+    it "should rent the movie" do
     end
   end
 
-  describe "GET create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+  content "failure" do
+    it "should not rent movies that are reserved" do
     end
-  end
 
-  describe "GET index" do
-    it "returns http success" do
-      get :index
-      expect(response).to have_http_status(:success)
-    end
+    it "should not rent with no available movies"
   end
-
 end

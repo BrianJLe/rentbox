@@ -1,2 +1,14 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<h1><b>Title:</b> <%= @movie.title %></h1>
+		<h4><b>Genre:</b> <%= @movie.genre %></h4>
+		<h4><b>Rating:</b> <%= @movie.rating %></h4>
+		<h4><b>Inventory:</b> <%= @movie.inventory %></h4>
+
+		<% if @movie.inventory == 'Reserved' %>
+		<%= link_to "Return A Movie", new_return_path, :class => 'btn btn-primary' %>
+		<% else @movie.inventory == 'Available' %>
+		<%= link_to "Rent A Movie", new_rental_path, :class => 'btn btn-primary' %>
+		<% end %>
+	</div>
+</div>

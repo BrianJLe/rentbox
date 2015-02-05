@@ -1,11 +1,15 @@
-  <%= form_for(@rental, :html => { :multipart => true }) do |f| %>
+<div class="container">
+	<div class="row">
+		<%= form_for(@rental, :html => {:class => "form-horizontal"}) do |f| %>
+		<div class="form-group">
+			<%= f.label :movie_id, "Movies", class: "col-md-4 control-label" %>
+			<div class="col-md-8">
+				<%= f.collection_select :movie_id, @movies, :id, :title, :prompt=>true,  class: "form-control" %>
+				<%= f.submit  "Rent", :class => "btn" %>
+				<%= link_to 'Back', movies_path, :class => "btn" %>
+			</div>
+		</div>
 
-  <div class="form-group" style="padding-top: 30px; padding-left: 60px; font-size: 1.5em;">
-  	<%= f.label :movie_id, "Movie" %><br>
-  	<%= f.collection_select :movie_id, @movies, :id, :title, :prompt=>true, class: "form-control" %>
-  </div>
-
-  <%= f.submit  "Checkout", class: "btn btn-primary" %>
-  <%= link_to 'Back', movies_path, class: "btn btn-default" %>
-
-  <% end %>
+		<% end %>
+	</div>
+</div>
