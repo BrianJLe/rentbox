@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
 
 	def index
 		if params[:search] && params[:search].length > 0
+			# Search results are not ordered.
 			@movies = Movie.search(params[:search])
 		else
 			@movies = Movie.order(sort_column + " " + sort_direction)
@@ -16,6 +17,7 @@ class MoviesController < ApplicationController
 	private
 
 	def sort_column
+		# Order default by title in ascending order.
 		Movie.column_names.include?(params[:sort]) ? params[:sort] : "title"
 	end
 

@@ -4,6 +4,7 @@ class Movie < ActiveRecord::Base
 	def self.search(search)
 		if search && search.length > 0
 			search_condition = "%" + search + "%"
+			# Allows insensitive cases
 			find(:all, :conditions => ['title ILIKE ?',search_condition])
 		end
 	end

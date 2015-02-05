@@ -5,6 +5,7 @@ class Rental < ActiveRecord::Base
 	before_save :reserve
 
 	private
+	
 	def reserve
 		if self.movie.inventory == "Available"
 			self.movie.mark_as_reserved
